@@ -20,13 +20,13 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: 127.0.0.1
 
 development:
   <<: *default
   database: sanctuary
   username: postgres
   password: 123
+  host: 127.0.0.1
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,9 +57,9 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-# test:
-#   <<: *default
-#   database: sanctuary
+test:
+  <<: *default
+  database: sanctuary
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,8 +81,8 @@ development:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-# production:
-#   <<: *default
-#   database: sanctuary_server_production
-#   username: sanctuary_server
-#   password: <%= ENV["SANCTUARY_SERVER_DATABASE_PASSWORD"] %>
+production:
+  <<: *default
+  database: sanctuary_server_production
+  username: sanctuary_server
+  password: <%= ENV["SANCTUARY_SERVER_DATABASE_PASSWORD"] %>

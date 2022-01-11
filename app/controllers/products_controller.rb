@@ -5,9 +5,8 @@ class ProductsController < ApplicationController
 
     def getAll
         @products = Product.all
-        msg = {:status => "200", :data => @products}
         respond_to do |format|
-            format.json { render :json => msg }
+            format.json { render :json => @products }
         end
     end
 end
